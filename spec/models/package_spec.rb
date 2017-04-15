@@ -18,20 +18,25 @@ describe Package do
       @package2 = Package.create!(name: 'Box',
                                   tracking_number: 'BLAH345ZBLAH')
 
-      @request = PendingPackage.create!(requester_id: @tenant1.id,
-                                        acceptor_id: @tenant2.id,
-                                        package_id: @package1.id)
+      @request1 = PendingPackage.create!(requester_id: @tenant1.id,
+                                         acceptor_id: @tenant2.id,
+                                         package_id: @package1.id)
+
+      @request2 = PendingPackage.create!(requester_id: @tenant1.id,
+                                         acceptor_id: @tenant2.id,
+                                         package_id: @package2.id)
     end
 
     it 'returns owner of package' do
-      pending('Not yet implemented')
+      expect(@package1.requester).to eq @tenant1
     end
 
     it 'returns the package request' do
-      pending('Not yet implemented')
+      expect(@package1.request).to eq @request1
     end
 
     it 'returns tenant who accepted the request' do
+      expect(@package1.acceptor).to eq @tenant2
     end
   end
 end
