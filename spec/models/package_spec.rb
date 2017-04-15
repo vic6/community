@@ -24,14 +24,15 @@ describe Package do
     end
 
     it 'returns owner of package' do
-      pending('Not yet implemented')
+      expect(@package1.requester).to eq @tenant1
     end
 
     it 'returns the package request' do
-      pending('Not yet implemented')
+      expect(@package1.request).to eq @request
     end
 
     it 'returns tenant who accepted the request' do
+      expect(@package1.acceptor).to eq @tenant2
     end
   end
 end
