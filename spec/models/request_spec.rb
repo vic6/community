@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'rails_helper'
 
-describe Package do
+describe Request do
   describe 'associations' do
     before(:each) do
       @tenant1 = Tenant.create!(first_name: 'Bob',
@@ -18,35 +18,20 @@ describe Package do
       @package2 = Package.create!(name: 'Box',
                                   tracking_number: 'BLAH345ZBLAH')
 
-<<<<<<< HEAD
-      @request1 = PendingPackage.create!(requester_id: @tenant1.id,
-                                         acceptor_id: @tenant2.id,
-                                         package_id: @package1.id)
-
-      @request2 = PendingPackage.create!(requester_id: @tenant1.id,
-                                         acceptor_id: @tenant2.id,
-                                         package_id: @package2.id)
-=======
       @request = Request.create!(requester_id: @tenant1.id,
                                  acceptor_id: @tenant2.id,
                                  package_id: @package1.id)
->>>>>>> dev
+    end
+    it 'returns tenant making the request' do
+      expect(@request.requester).to eq @tenant1
     end
 
-    it 'returns owner of package' do
-      expect(@package1.requester).to eq @tenant1
+    it 'returns tenant accepting the request' do
+      expect(@request.acceptor).to eq @tenant2
     end
 
-    it 'returns the package request' do
-<<<<<<< HEAD
-      expect(@package1.request).to eq @request1
-=======
-      expect(@package1.request).to eq @request
->>>>>>> dev
-    end
-
-    it 'returns tenant who accepted the request' do
-      expect(@package1.acceptor).to eq @tenant2
+    it 'returns package in the request' do
+      expect(@reqest.package).to eq @package1
     end
   end
 end

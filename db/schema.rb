@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170407225234) do
+ActiveRecord::Schema.define(version: 20170415062739) do
 
   create_table "apartments", force: :cascade do |t|
     t.string   "name"
@@ -25,13 +25,12 @@ ActiveRecord::Schema.define(version: 20170407225234) do
     t.datetime "updated_at",      null: false
   end
 
-  create_table "pending_packages", force: :cascade do |t|
-    t.integer  "tenant_id"
+  create_table "requests", force: :cascade do |t|
+    t.integer  "requester_id"
+    t.integer  "acceptor_id"
     t.integer  "package_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["package_id"], name: "index_pending_packages_on_package_id"
-    t.index ["tenant_id"], name: "index_pending_packages_on_tenant_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "tenants", force: :cascade do |t|
