@@ -18,7 +18,6 @@ describe Package do
       @package2 = Package.create!(name: 'Box',
                                   tracking_number: 'BLAH345ZBLAH')
 
-<<<<<<< HEAD
       @request1 = PendingPackage.create!(requester_id: @tenant1.id,
                                          acceptor_id: @tenant2.id,
                                          package_id: @package1.id)
@@ -26,11 +25,6 @@ describe Package do
       @request2 = PendingPackage.create!(requester_id: @tenant1.id,
                                          acceptor_id: @tenant2.id,
                                          package_id: @package2.id)
-=======
-      @request = Request.create!(requester_id: @tenant1.id,
-                                 acceptor_id: @tenant2.id,
-                                 package_id: @package1.id)
->>>>>>> dev
     end
 
     it 'returns owner of package' do
@@ -38,11 +32,8 @@ describe Package do
     end
 
     it 'returns the package request' do
-<<<<<<< HEAD
       expect(@package1.request).to eq @request1
-=======
       expect(@package1.request).to eq @request
->>>>>>> dev
     end
 
     it 'returns tenant who accepted the request' do
