@@ -4,13 +4,15 @@ require 'rails_helper'
 describe Request do
   describe 'associations' do
     before(:each) do
+      @apartment = Apartment.create!(name: 'Marcy Projects')
+
       @tenant1 = Tenant.create!(first_name: 'Bob',
                                 last_name: 'Sponge',
                                 apartment_id: 1,
-                                apt_number: 4)
+                                apt_number: @apartment.id)
       @tenant2 = Tenant.create!(first_name: 'Gary',
                                 last_name: 'Snail',
-                                apartment_id: 1,
+                                apartment_id: @apartment.id,
                                 apt_number: 87)
 
       @package1 = Package.create!(name: 'Anchor Arms',
@@ -31,7 +33,7 @@ describe Request do
     end
 
     it 'returns package in the request' do
-      expect(@reqest.package).to eq @package1
+      expect(@reqest.package_id).to eq @package1.id
     end
   end
 end
