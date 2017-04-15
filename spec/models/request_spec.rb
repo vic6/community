@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'rails_helper'
 
-describe PendingPackage do
+describe Request do
   describe 'associations' do
     before(:each) do
       @tenant1 = Tenant.create!(first_name: 'Bob',
@@ -18,7 +18,7 @@ describe PendingPackage do
       @package2 = Package.create!(name: 'Box',
                                   tracking_number: 'BLAH345ZBLAH')
 
-      @request = PendingPackage.create!(requester_id: @tenant1.id,
+      @request = Request.create!(requester_id: @tenant1.id,
                                         acceptor_id: @tenant2.id,
                                         package_id: @package1.id)
     end

@@ -18,9 +18,9 @@ describe Package do
       @package2 = Package.create!(name: 'Box',
                                   tracking_number: 'BLAH345ZBLAH')
 
-      @request = PendingPackage.create!(requester_id: @tenant1.id,
-                                        acceptor_id: @tenant2.id,
-                                        package_id: @package1.id)
+      @request = Request.create!(requester_id: @tenant1.id,
+                                 acceptor_id: @tenant2.id,
+                                 package_id: @package1.id)
     end
 
     it 'returns owner of package' do
