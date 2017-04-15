@@ -33,7 +33,6 @@ describe Package do
 
     it 'returns the package request' do
       expect(@package1.request).to eq @request1
-      expect(@package1.request).to eq @request
     end
 
     it 'returns tenant who accepted the request' do
