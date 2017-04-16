@@ -33,7 +33,7 @@ describe Request do
     end
 
     it 'returns package in the request' do
-      expect(@reqest.package_id).to eq @package1.id
+      expect(@request.package).to eq @package1
     end
   end
 end
