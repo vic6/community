@@ -1,4 +1,8 @@
 <h1>Welcome to Community</h1>
 <p>Items requesting pickup</p>
 
+<%@requests.each do |request| %>
+  <%= request.requester.first_name %>
+<% end %>
+
 <p>List an item for pickup.</p>
