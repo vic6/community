@@ -2,8 +2,9 @@
 <p>Items requesting pickup</p>
 
 <div class="list-group">
-
   <% @requests.each do |request| %>
-  <a href="#" class="list-group-item"><%=request.acceptor.first_name%></a>
+  <a href="<%= request_path(request) %>" class="list-group-item"><%=request.package.name%></a>
   <% end %>
 </div>
+
+<a class="btn btn-default" href="/requests/new" role="button">Request a pickup</a>
