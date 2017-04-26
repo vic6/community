@@ -1,9 +1,13 @@
 <p>
   <strong>Requester:</strong>
-  <%= @request.requester.first_name + @request.requester.last_name %>
+  <%= @request.requester.full_name %>
 </p>
 
 <p>
-  <strong>Text:</strong>
-  <%= @request.acceptor_id %>
+  <strong>Tracking Number:</strong>
+  <%= @request.package.tracking_number %>
 </p>
+
+<a class="btn btn-default" href="/requests/new" role="button">Accept package</a>
+
+<td><%= link_to 'Back', requests_path %></td>

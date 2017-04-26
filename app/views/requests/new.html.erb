@@ -1,2 +1,17 @@
 <td><%= link_to 'Back', requests_path %></td>
-<h1>I rule</h1>
+
+<%= form_for :package, url: packages_path do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :tracking_number %><br>
+    <%= f.text_field :text %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
