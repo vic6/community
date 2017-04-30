@@ -4,8 +4,11 @@ Apartment.create!(name: "Kirkland Vista")
 (1..10).each do |num|
   Tenant.create!(first_name: Faker::Name.first_name,
                  last_name: Faker::Name.last_name,
+                 email: 'b@b.com',
                  apt_number: num,
-                 apartment_id: 1)
+                 apartment_id: 1,
+                 password: 'p',
+                 password_confirmation: 'p')
 end
 
 # create 50 packages

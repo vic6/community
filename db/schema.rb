@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170415062739) do
+ActiveRecord::Schema.define(version: 20170430014200) do
 
   create_table "apartments", force: :cascade do |t|
     t.string   "name"
@@ -36,10 +36,12 @@ ActiveRecord::Schema.define(version: 20170415062739) do
   create_table "tenants", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "email"
+    t.string   "password_digest"
     t.integer  "apt_number"
     t.integer  "apartment_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end
