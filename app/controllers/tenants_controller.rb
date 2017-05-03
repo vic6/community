@@ -9,7 +9,9 @@ class TenantsController < ApplicationController
 
   def create
     @tenant = Tenant.create(tenant_params)
+    @tenant.apartment_id = 1
     if @tenant.save
+      redirect_to @tenant
     else
       render 'new'
     end
