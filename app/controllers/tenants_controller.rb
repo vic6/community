@@ -11,6 +11,7 @@ class TenantsController < ApplicationController
     @tenant = Tenant.create(tenant_params)
     @tenant.apartment_id = 1
     if @tenant.save
+      flash[:success] = 'Welcome to Community!'
       redirect_to @tenant
     else
       render 'new'
