@@ -5,6 +5,7 @@ class TenantsController < ApplicationController
 
   def new
     @tenant = Tenant.new
+    @tenant.apartment_id = 1
   end
 
   def create
