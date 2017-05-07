@@ -5,7 +5,8 @@ class SessionsController < ApplicationController
   def create
     tenant = Tenant.find_by(email: params[:session][:email].downcase)
     if tenant && tenant.authenticate(params[:session][:password])
-      # login(tenant)
+      log_in tenant
+      redirect_to tenant
     else
       flash.now[:danger] = 'Invalid email/password'
       render 'new'
