@@ -5,12 +5,12 @@ class TenantsController < ApplicationController
 
   def new
     @tenant = Tenant.new
-    @tenant.apartment_id = 1
+    # @tenant.apartment_id = 1
   end
 
   def create
     @tenant = Tenant.create(tenant_params)
-    @tenant.apartment_id = 1
+    # @tenant.apartment_id = 1
     if @tenant.save
       flash[:success] = 'Welcome to Community!'
       redirect_to @tenant
@@ -23,7 +23,7 @@ class TenantsController < ApplicationController
 
   def tenant_params
     params.require(:tenant).permit(:first_name, :last_name,
-                                   :email, :password,
+                                   :apartment_id, :email, :password,
                                    :password_confirmation)
   end
 end
